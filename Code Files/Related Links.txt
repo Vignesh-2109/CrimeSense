@@ -1,0 +1,7 @@
+Dataset Links:
+
+https://www.kaggle.com/datasets/minhajuddinmeraj/anomalydetectiondatasetucf
+
+https://visionlab.uncc.edu/download/summary/60-data/477-ucf-anomaly-detection-dataset
+
+https://www.dropbox.com/scl/fo/2aczdnx37hxvcfdo4rq4q/AOjRokSTaiKxXmgUyqdcI6k?rlkey=5bg7mxxbq46t7aujfch46dlvz&e=1&dl=0
