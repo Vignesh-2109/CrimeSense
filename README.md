@@ -31,19 +31,12 @@
 
 ```
 Crime-Sense/
-├── data/                   # Dataset splits & preprocessing
-├── notebooks/              # EDA and ablation studies
-├── models/
-│   ├── binary_classifier.keras
-│   └── 4_type_classifier.keras
-├── src/
-│   ├── preprocessing.py    # CLAHE, resizing, extraction
-│   ├── architecture.py     # CNN, LSTM, dropout logic
-│   ├── train.py            # Training pipeline
-│   └── app.py              # Flask inference API
-├── results/                # Metrics, confusion matrices, plots
-├── Dockerfile              # Container config
-└── README.md               # This file
+├── Code Files/
+├── Crime Sense Application/                   
+├── Reference Papers/
+├── Related Pictures/
+├── Reports/              
+└── README.md               
 ```
 
 ---
@@ -52,8 +45,9 @@ Crime-Sense/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/crime-sense.git
-cd crime-sense
+git clone https://github.com/Vignesh-2109/CrimeSense.gitse.git
+cd crime-frontnend
+cd backend
 
 # 2. Create and activate a virtual environment
 python -m venv venv
@@ -67,33 +61,39 @@ pip install -r requirements.txt
 
 ## 📦 Dataset Preparation
 
-Place the UCF-Crime dataset videos into `data/raw/`, then run:
-
-```bash
-python src/preprocessing.py --input_dir data/raw --output_dir data/processed
+Download the dataset from 
 ```
-
+https://www.kaggle.com/datasets/minhajuddinmeraj/anomalydetectiondatasetucf
+```
+and categorise them as binary or four way classification as per project.
 ---
 
 ## 🏋️ Model Training
 
 ```bash
 # Train binary classifier
-python src/train.py --task binary
+python Code Files/Binary Classification.ipynb --task binary
 
 # Train four-way classifier
-python src/train.py --task four_way
+python Code Files/Four Way Classification.ipynb --task four_way
 ```
+
+After training, save the model with best weights and store in backend/models and load them as needed in app.py to send the input to the model.
 
 ---
 
 ## 🌐 Run the Web App
 
+Frontend:
 ```bash
-uvicorn src.app:app --reload --host 0.0.0.0 --port 8000
+npm run dev
+```
+Backend:
+```bash
+python app.py
 ```
 
-Then open your browser at [http://localhost:8000](http://localhost:8000) and upload an MP4 file to get predictions.
+Then open your browser at [http://localhost:8000](http://localhost:3000) and upload an MP4 file to get predictions.
 
 ---
 
@@ -122,7 +122,7 @@ curl -X POST "http://localhost:8000/predict/fourway" \
 | Binary (Normal vs Crime)   | 94.0%    | 0.94      | 0.94   | 0.94     |
 | Four-Way Crime Classification | 95.6%    | 0.96      | 0.96   | 0.96     |
 
-*Detailed loss curves and confusion matrices are available in the `results/` folder.*
+*Detailed loss curves and confusion matrices are available in the `Reports/` folder.*
 
 ---
 
@@ -141,9 +141,9 @@ If you use **Crime Sense** in your work, please cite:
 ```bibtex
 @misc{crimesense2024,
   title={Crime Sense: Video-Based Crime Classification using Contrast-Enhanced Residual--BiLSTM},
-  author={Your Name},
+  author={Vignesh Maram},
   year={2024},
-  note={\url{https://github.com/yourusername/crime-sense}},
+  note={\url{https://github.com/Vignesh-2109/CrimeSense.git}},
 }
 ```
 
